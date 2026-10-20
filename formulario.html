@@ -1,3 +1,92 @@
 <!DOCTYPE html>
-<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Portfólio acadêmico de Gustavo Lameiras: trajetória, estudos e experiências em desenvolvimento web."><meta name="color-scheme" content="dark light"><title>Formulário | Gustavo Lameiras</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="css/estilos.css"><script src="js/scripts.js" defer></script></head>
-<body><a class="skip" href="#conteudo">Pular para o conteúdo</a><header class="site-header"><div class="wrap header-inner"><a class="brand" href="index.html" aria-label="Gustavo Lameiras, início">gl<span>.</span></a><nav aria-label="Menu principal"><a href="index.html" >Início</a><a href="curriculo.html" >Currículo</a><a href="formulario.html" aria-current="page">Formulário</a><a href="multimidia.html" >Multimídia</a><a href="graficos.html" >Gráficos</a></nav><button id="tema" class="theme" type="button" aria-pressed="false">Tema claro ◐</button></div></header><main id="conteudo" class="wrap"><section class="page-intro"><p class="eyebrow">02 / FORMULÁRIO</p><h1>Uma conversa pode<br><em>ser o começo.</em></h1><p class="lead">Um espaço para apresentar ideias, oportunidades e sugestões.</p></section><div class="two-columns form-layout"><section class="panel"><h2>Deixe sua mensagem</h2><p class="muted" id="form-note">Demonstração acadêmica: os dados são validados neste navegador. Nenhuma mensagem é enviada ou armazenada. Todos os campos são obrigatórios.</p><form id="contato" novalidate aria-describedby="form-note"><label for="nome">Nome</label><input id="nome" name="nome" autocomplete="name" required minlength="2" maxlength="80" aria-describedby="erro-nome" placeholder="Como você se chama?"><span class="error" id="erro-nome"></span><label for="email">E-mail</label><input type="email" id="email" name="email" autocomplete="email" required maxlength="150" aria-describedby="erro-email" placeholder="voce@exemplo.com"><span class="error" id="erro-email"></span><label for="assunto">Assunto</label><select id="assunto" name="assunto" required aria-describedby="erro-assunto"><option value="">Selecione uma opção</option><option>Oportunidade profissional</option><option>Projeto acadêmico</option><option>Sugestão ou dúvida</option></select><span class="error" id="erro-assunto"></span><label for="mensagem">Mensagem</label><textarea id="mensagem" name="mensagem" rows="5" required minlength="10" maxlength="2000" aria-describedby="erro-mensagem" placeholder="Conte um pouco sobre sua ideia..."></textarea><span class="error" id="erro-mensagem"></span><button class="button" type="submit">Validar mensagem →</button><p id="form-feedback" role="status" aria-live="polite"></p></form></section><aside><p class="eyebrow">VAMOS NOS CONECTAR</p><h2>Ideias boas começam<br>com uma troca.</h2><p class="muted">Tenho interesse em aprender com projetos e equipes de desenvolvimento.</p><a class="text-link" href="https://github.com/glameiras" target="_blank" rel="noopener noreferrer">github.com/glameiras ↗</a><div class="small-note"><h3>Sobre sua privacidade</h3><p>Este site guarda apenas sua escolha de tema. O formulário não salva nome, e-mail ou mensagem.</p></div></aside></div></main><footer class="wrap footer"><span>Gustavo Lameiras<span class="accent">.</span><small>Aprendendo, construindo e evoluindo.</small></span><a href="https://github.com/glameiras" target="_blank" rel="noopener noreferrer">GitHub ↗</a><small>Portfólio acadêmico · CP3 · 2026</small></footer><p id="storage-status" class="wrap muted" role="status"></p></body></html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfólio acadêmico de Gustavo Lameiras: trajetória, estudos e experiências em desenvolvimento web.">
+<meta name="color-scheme" content="dark light">
+<title>Formulário | Gustavo Lameiras</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/estilos.css">
+<script src="js/scripts.js" defer>
+</script>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="site-header">
+<div class="wrap header-inner">
+<a class="brand" href="index.html" aria-label="Gustavo Lameiras, início">gl<span>.</span>
+</a>
+<nav aria-label="Menu principal">
+<a href="index.html" >Início</a>
+<a href="curriculo.html" >Currículo</a>
+<a href="formulario.html" aria-current="page">Formulário</a>
+<a href="multimidia.html" >Multimídia</a>
+<a href="graficos.html" >Gráficos</a>
+</nav>
+<button id="tema" class="theme" type="button" aria-pressed="false">Tema claro ◐</button>
+</div>
+</header>
+<main id="conteudo" class="wrap">
+<section class="page-intro">
+<p class="eyebrow">02 / FORMULÁRIO</p>
+<h1>Uma conversa pode<br>
+<em>ser o começo.</em>
+</h1>
+<p class="lead">Um espaço para apresentar ideias, oportunidades e sugestões.</p>
+</section>
+<div class="two-columns form-layout">
+<section class="panel">
+<h2>Deixe sua mensagem</h2>
+<p class="muted" id="form-note">Demonstração acadêmica: os dados são validados neste navegador. Nenhuma mensagem é enviada ou armazenada. Todos os campos são obrigatórios.</p>
+<form id="contato" novalidate aria-describedby="form-note">
+<label for="nome">Nome</label>
+<input id="nome" name="nome" autocomplete="name" required minlength="2" maxlength="80" aria-describedby="erro-nome" placeholder="Como você se chama?">
+<span class="error" id="erro-nome">
+</span>
+<label for="email">E-mail</label>
+<input type="email" id="email" name="email" autocomplete="email" required maxlength="150" aria-describedby="erro-email" placeholder="voce@exemplo.com">
+<span class="error" id="erro-email">
+</span>
+<label for="assunto">Assunto</label>
+<select id="assunto" name="assunto" required aria-describedby="erro-assunto">
+<option value="">Selecione uma opção</option>
+<option>Oportunidade profissional</option>
+<option>Projeto acadêmico</option>
+<option>Sugestão ou dúvida</option>
+</select>
+<span class="error" id="erro-assunto">
+</span>
+<label for="mensagem">Mensagem</label>
+<textarea id="mensagem" name="mensagem" rows="5" required minlength="10" maxlength="2000" aria-describedby="erro-mensagem" placeholder="Conte um pouco sobre sua ideia...">
+</textarea>
+<span class="error" id="erro-mensagem">
+</span>
+<button class="button" type="submit">Validar mensagem →</button>
+<p id="form-feedback" role="status" aria-live="polite">
+</p>
+</form>
+</section>
+<aside>
+<p class="eyebrow">VAMOS NOS CONECTAR</p>
+<h2>Ideias boas começam<br>com uma troca.</h2>
+<p class="muted">Tenho interesse em aprender com projetos e equipes de desenvolvimento.</p>
+<a class="text-link" href="https://github.com/glameiras" target="_blank" rel="noopener noreferrer">github.com/glameiras ↗</a>
+<div class="small-note">
+<h3>Sobre sua privacidade</h3>
+<p>Este site guarda apenas sua escolha de tema. O formulário não salva nome, e-mail ou mensagem.</p>
+</div>
+</aside>
+</div>
+</main>
+<footer class="wrap footer">
+<span>Gustavo Lameiras<span class="accent">.</span>
+<small>Aprendendo, construindo e evoluindo.</small>
+</span>
+<a href="https://github.com/glameiras" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+<small>Portfólio acadêmico · CP3 · 2026</small>
+</footer>
+<p id="storage-status" class="wrap muted" role="status">
+</p>
+</body>
+</html>
