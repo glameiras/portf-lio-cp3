@@ -1,0 +1,15 @@
+.git/
+node_modules/
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+*.zip
+*.exe
+*.dll
+*.pyc
+__pycache__/
+.vscode/
