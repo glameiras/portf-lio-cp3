@@ -80,3 +80,84 @@ function desenharGrafico() {
   ctx.font = '13px Arial';
   ctx.fillText('por semana', 135, 166);
 }
+
+// Formulário demonstrativo: não envia nem persiste dados pessoais.
+const formulario = document.querySelector('#contato');
+if (formulario) {
+  const feedback = document.querySelector('#form-feedback');
+  const campos = ['nome', 'email', 'assunto', 'mensagem'];
+  function validar(campo) {
+    const elemento = formulario.elements[campo];
+    const valor = elemento.value.trim();
+    let erro = '';
+    if (!valor) erro = 'Preencha este campo.';
+    else if (campo === 'nome' && valor.length < 2) erro = 'Informe um nome com pelo menos 2 caracteres.';
+    else if (campo === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor)) erro = 'Informe um e-mail válido, como voce@exemplo.com.';
+    else if (campo === 'mensagem' && valor.length < 10) erro = 'Escreva uma mensagem com pelo menos 10 caracteres.';
+    else if (elemento.maxLength > 0 && valor.length > elemento.maxLength) erro = `Use até ${elemento.maxLength} caracteres.`;
+    document.querySelector(`#erro-${campo}`).textContent = erro;
+    elemento.setAttribute('aria-invalid', String(Boolean(erro)));
+    return !erro;
+  }
+  campos.forEach((campo) => {
+    const elemento = formulario.elements[campo];
+    elemento.addEventListener('blur', () => validar(campo));
+    elemento.addEventListener('input', () => {
+      feedback.textContent = '';
+      feedback.className = '';
+      if (elemento.getAttribute('aria-invalid') === 'true') validar(campo);
+    });
+  });
+  formulario.addEventListener('submit', (evento) => {
+    evento.preventDefault();
+    const resultados = campos.map(validar);
+    if (resultados.every(Boolean)) {
+      feedback.className = 'success';
+      feedback.textContent = 'Dados validados com sucesso! Esta é uma demonstração: nenhuma mensagem foi enviada ou salva.';
+    } else {
+      feedback.className = 'failure';
+      feedback.textContent = 'Revise os campos indicados antes de continuar.';
+      formulario.elements[campos[resultados.indexOf(false)]].focus();
+    }
+  });
+}
+
+// Som sintetizado localmente, sempre iniciado por uma ação do visitante.
+const botaoSom = document.querySelector('#som');
+if (botaoSom) {
+  botaoSom.addEventListener('click', async () => {
+    const status = document.querySelector('#som-status');
+    let contexto;
+    botaoSom.disabled = true;
+    try {
+      const ContextoAudio = window.AudioContext || window.webkitAudioContext;
+      if (!ContextoAudio) throw new Error('Áudio indisponível');
+      contexto = new ContextoAudio();
+      await contexto.resume();
+      status.textContent = 'Reproduzindo sequência sonora…';
+      const inicio = contexto.currentTime;
+      [261.63, 329.63, 392, 523.25].forEach((frequencia, i) => {
+        const oscilador = contexto.createOscillator();
+        const volume = contexto.createGain();
+        const momento = inicio + i * 0.45;
+        oscilador.frequency.value = frequencia;
+        volume.gain.setValueAtTime(0, momento);
+        volume.gain.linearRampToValueAtTime(0.12, momento + 0.04);
+        volume.gain.exponentialRampToValueAtTime(0.001, momento + 0.4);
+        oscilador.connect(volume);
+        volume.connect(contexto.destination);
+        oscilador.start(momento);
+        oscilador.stop(momento + 0.43);
+        if (i === 3) oscilador.onended = async () => {
+          await contexto.close();
+          botaoSom.disabled = false;
+          status.textContent = 'Reprodução concluída. Você pode ouvir novamente.';
+        };
+      });
+    } catch {
+      if (contexto && contexto.state !== 'closed') await contexto.close();
+      botaoSom.disabled = false;
+      status.textContent = 'Não foi possível reproduzir o áudio neste navegador. Tente novamente em um navegador atualizado.';
+    }
+  });
+}
