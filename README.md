@@ -63,6 +63,8 @@ A Web Audio API produz uma sequência curta após clicar; não há autoplay. O S
 - Quebra de linhas no código ilustrativo e colunas adaptáveis para evitar transbordamento.
 - Dados do canvas também disponíveis na tabela HTML.
 
+Registro da revisão: [docs/VALIDACAO_CP4.md](docs/VALIDACAO_CP4.md).
+
 ## Executar e testar
 
 Abra a pasta no VS Code e use Live Server, ou execute:
@@ -81,7 +83,7 @@ Esse teste cobre navegação/recursos e lógica com DOM simulado. A workflow **V
 
 ## Publicação e entrega
 
-O repositório existente `portf-lio-cp3` permanece com esse nome para preservar a URL. GitHub Pages publica a branch `main`, raiz. A tag anotada `cp4-entrega` será criada após validar a versão final; não altera `cp3-entrega`.
+O repositório existente `portf-lio-cp3` permanece com esse nome para preservar a URL. GitHub Pages publica a branch `main`, raiz. A tag anotada `cp4-entrega` identifica a versão final validada; não altera `cp3-entrega`.
 
 No Blackboard, enviar link do site, link do repositório com a tag e **vídeo com sua voz de 1min30 a 2min30**, mostrando todas as páginas, a feature com persistência após F5, evolução, decisões, Bootstrap e acessibilidade. O vídeo precisa mostrar o site publicado funcionando. O enunciado informa que, sem vídeo, todo o trabalho individual é zerado.
 
