@@ -1,102 +1,92 @@
-# Gustavo Lameiras — Portfólio CP3
+# Gustavo Lameiras - Portfólio CP4
 
-Projeto acadêmico de portfólio com cinco páginas em HTML, CSS e JavaScript puro.
+Versão final do projeto individual de Desenvolvimento Front-End para Web. Autor: **Gustavo Lameiras**, estudante de Análise e Desenvolvimento de Sistemas.
 
-## Autor
-Gustavo Lameiras — estudante de Análise e Desenvolvimento de Sistemas.
+- Site: https://glameiras.github.io/portf-lio-cp3/
+- Repositório: https://github.com/glameiras/portf-lio-cp3
+- Entrega final: tag `cp4-entrega`; a tag `cp3-entrega` permanece preservada.
+- Prazo: 17/11/2026.
+- Roteiro do vídeo obrigatório: [docs/ROTEIRO_CP4.md](docs/ROTEIRO_CP4.md).
 
 ## Páginas
-- `index.html`: apresentação e caminhos do portfólio.
-- `curriculo.html`: formação, conhecimentos e experiência profissional.
-- `formulario.html`: contato demonstrativo com validação.
-- `multimidia.html`: ilustração SVG e experiência sonora gerada no navegador.
-- `graficos.html`: gráfico SVG, gráfico em canvas e tabela de dados ilustrativos.
 
-## Executar
-Abra a pasta com o VS Code e use Live Server, ou execute `python -m http.server 8000` e acesse `http://localhost:8000`.
+| Arquivo | Conteúdo |
+| --- | --- |
+| `index.html` | Apresentação, navegação e cards com grid Bootstrap |
+| `curriculo.html` | Formação, experiência e conhecimentos iniciais |
+| `formulario.html` | Formulário demonstrativo com validação e feedback |
+| `multimidia.html` | Imagem SVG com descrição e áudio iniciado pelo visitante |
+| `graficos.html` | SVG, canvas e tabela equivalente com dados fictícios |
 
-CSS compartilhado: `css/estilos.css`. JavaScript compartilhado: `js/scripts.js`.
+## Evolução e decisões
 
-## Funcionalidades
+O histórico registra a construção da estrutura, das cinco páginas, da validação e do tema persistente. O CP3 já reunia HTML, CSS e JavaScript com `localStorage`. O CP4 preserva essas funcionalidades e acrescenta Bootstrap, ajustes finais de acessibilidade/responsividade, testes de navegador e documentação da apresentação. Consulte `git log --graph --oneline --all` para os commits reais; não foram inventadas contribuições ou datas de etapas anteriores.
 
-### Tema claro/escuro com persistência
-O botão no cabeçalho alterna a paleta em todas as cinco páginas. O JavaScript usa `localStorage.getItem()` ao carregar e `localStorage.setItem()` ao alternar. A chave `portfolio-gustavo-tema` recebe `claro` ou `escuro`. A escolha permanece após recarregar e navegar entre páginas da mesma origem. Abas abertas são sincronizadas pelo evento `storage`.
+A identidade escura/verde e a opção clara continuam no CSS próprio. A separação entre HTML, CSS e JavaScript facilita estudar e manter o projeto. Não há framework JavaScript nem backend.
 
-Se o navegador bloquear o armazenamento, a troca continua funcionando na página atual e um aviso explica a limitação. Nenhum dado pessoal do formulário é persistido.
+## Bootstrap: onde e por quê
 
-Como testar:
-1. Abra `index.html` por um servidor local ou pela URL publicada.
-2. Alterne o tema no cabeçalho e recarregue.
-3. Navegue pelas outras quatro páginas: a preferência deve permanecer.
-4. Em DevTools → Application → Local Storage, confira `portfolio-gustavo-tema`.
-5. Troque novamente e confira o valor. O armazenamento é separado por origem; localhost e GitHub Pages não compartilham a preferência.
+Usamos **Bootstrap 5.3.8**, somente a distribuição oficial de grid, em `css/vendor/bootstrap-grid.min.css`, carregada antes do CSS próprio. A cópia local evita depender de uma CDN durante a demonstração. Licença MIT e créditos preservados no arquivo distribuído.
 
-### Formulário
-Nome (mínimo de 2 caracteres), e-mail válido, assunto e mensagem (mínimo de 10 caracteres) são obrigatórios. Espaços em branco não contam como conteúdo. Os erros aparecem próximos aos campos, com `aria-invalid`, e o foco vai ao primeiro erro ao validar. A confirmação informa explicitamente que nada foi enviado. Este site estático não possui backend de envio.
+Na seção de cards da página inicial:
 
-### Multimídia e gráficos
-- Ilustração original em SVG com descrição alternativa.
-- Sequência sonora com Web Audio API, iniciada pelo visitante.
-- Gráficos em SVG e canvas com dados fictícios, descrições acessíveis e tabela equivalente.
-- Sem bibliotecas externas, rastreadores, imagens remotas ou dependências para executar o site.
+- `row` organiza a linha flexível.
+- `g-3` define espaçamento entre as colunas.
+- `col-12` usa a largura disponível no celular.
+- `col-md-4` coloca três colunas a partir de 768 px.
 
-## Estrutura
-```text
-portfolio-cp3/
-├── index.html
-├── curriculo.html
-├── formulario.html
-├── multimidia.html
-├── graficos.html
-├── css/estilos.css
-├── js/scripts.js
-├── assets/favicon.svg
-├── assets/workspace.svg
-├── testes/verificar.js
-├── .gitignore
-├── .nojekyll
-└── README.md
-```
+São classes efetivamente usadas para layout, não apenas nomes adicionados sem função. O restante do visual permanece personalizado. Não precisamos do JavaScript do Bootstrap porque não usamos componentes interativos da biblioteca.
 
-## Testes executados na preparação
-`node testes/verificar.js` verifica a presença de todos os links do menu, os recursos compartilhados, a persistência em contextos simulados de recarga, o tratamento de armazenamento bloqueado e os caminhos de erro e sucesso do formulário. Também foram verificados sintaxe JavaScript, fechamento de elementos HTML, IDs únicos e existência dos arquivos referenciados.
+Fonte: https://getbootstrap.com/docs/5.3/layout/grid/
 
-Limite: estes são testes de código e DOM simulado. A renderização, o áudio no navegador e a URL pública ainda precisam de conferência manual após o deploy. Não foi realizado teste em janela anônima nesta preparação.
+## JavaScript e localStorage
 
-## Histórico Git
-O projeto foi desenvolvido com commits por etapa. A feature de tema foi implementada na branch `feature/tema-escuro`, integrada com merge à `main`. A tag anotada `cp3-entrega` marca a versão preparada para entrega.
+O botão do cabeçalho altera o atributo `data-tema` do HTML e salva `claro` ou `escuro` na chave `portfolio-gustavo-tema`. Ao abrir uma página, `getItem()` recupera a escolha; ao alternar, `setItem()` salva. `try/catch` trata bloqueios do armazenamento: a troca continua na página atual com um aviso. O evento `storage` sincroniza outras abas da mesma origem.
+
+A preferência sobrevive ao F5 e à navegação. Localhost e GitHub Pages têm armazenamentos distintos. **Nenhum dado pessoal do formulário é salvo.**
+
+Demonstração: alterne o tema, confira a chave em DevTools > Application > Local Storage, pressione F5 e abra outra página.
+
+## Formulário e multimídia
+
+Nome com pelo menos dois caracteres, e-mail válido, assunto e mensagem com pelo menos dez caracteres. Espaços não contam. Os erros aparecem junto aos campos, com `aria-invalid` e foco no primeiro erro. O sucesso informa claramente que nada foi enviado ou armazenado.
+
+A Web Audio API produz uma sequência curta após clicar; não há autoplay. O SVG possui texto alternativo. Gráficos são ilustrativos, com descrição acessível e tabela equivalente; não representam domínio ou horas reais do autor.
+
+## Acessibilidade e responsividade
+
+- Idioma pt-BR, estrutura semântica, títulos, labels e link de salto ao conteúdo.
+- Foco visível em controles; navegação e tema operáveis pelo teclado.
+- Mensagens de estado e erros textuais, sem depender só de cores.
+- Bordas dos campos reforçadas com a cor de texto secundário, em ambos os temas.
+- Cores claras/escuras próprias, redução de movimento respeitada e imagem responsiva.
+- Quebra de linhas no código ilustrativo e colunas adaptáveis para evitar transbordamento.
+- Dados do canvas também disponíveis na tabela HTML.
+
+## Executar e testar
+
+Abra a pasta no VS Code e use Live Server, ou execute:
 
 ```bash
-git log --graph --oneline --all
-git show cp3-entrega --stat
+python -m http.server 8000
 ```
 
-## Publicar no GitHub Pages
-1. Crie um repositório público chamado `portfolio-cp3` na conta `glameiras`, **sem** adicionar README, licença ou gitignore pelo GitHub.
-2. Se recebeu o pacote ZIP, restaure o histórico com o arquivo `restaurar-historico.bat`, conforme o guia externo. Não faça um único commit pelo upload de arquivos no site do GitHub.
-3. No terminal, dentro da pasta do projeto com o histórico restaurado:
+Acesse http://localhost:8000. O site não precisa de npm nem de build para funcionar.
+
 ```bash
-git remote add origin https://github.com/glameiras/portfolio-cp3.git
-git push -u origin main
-git push origin feature/tema-escuro
-git push origin cp3-entrega
+node testes/verificar.js
 ```
-4. Abra Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch: `main` → `/ (root)` → Save.
-5. Aguarde a publicação e use o endereço informado pelo próprio GitHub. Endereço esperado para esse nome: `https://glameiras.github.io/portfolio-cp3/` (não significa que já esteja publicado).
-6. Se houver a opção, mantenha Enforce HTTPS ativado.
 
-## Checklist antes de enviar no Blackboard
-- [ ] Repositório público acessível sem login, com commits descritivos.
-- [ ] Branch `main` e tag `cp3-entrega` enviadas.
-- [ ] GitHub Pages com deploy concluído e HTTPS.
-- [ ] Em janela anônima, abrir a página inicial e navegar pelo menu nas cinco páginas.
-- [ ] Alternar o tema, recarregar e navegar para conferir a persistência.
-- [ ] Testar formulário vazio, e-mail inválido e dados válidos.
-- [ ] Reproduzir o áudio e conferir gráficos, tabela e layout no celular.
-- [ ] Conferir que o site publicado corresponde ao commit da tag.
-- [ ] Enviar o link do repositório e a URL publicada no Blackboard.
+Esse teste cobre navegação/recursos e lógica com DOM simulado. A workflow **Validar portfólio CP4** executa testes reais em Chromium com Playwright: cinco páginas, temas, persistência, formulário, áudio, canvas, teclado e larguras de celular/desktop. Dependências são instaladas somente no CI. Confira o resultado em Actions; o teste não substitui revisão com leitor de tela ou dispositivos físicos.
 
-Se precisar corrigir algo depois da tag, faça um novo commit e envie para `main`. Antes da entrega definitiva, mova a tag apenas de forma consciente e sincronize a versão publicada; não altere silenciosamente uma versão já avaliada.
+## Publicação e entrega
+
+O repositório existente `portf-lio-cp3` permanece com esse nome para preservar a URL. GitHub Pages publica a branch `main`, raiz. A tag anotada `cp4-entrega` será criada após validar a versão final; não altera `cp3-entrega`.
+
+No Blackboard, enviar link do site, link do repositório com a tag e **vídeo com sua voz de 1min30 a 2min30**, mostrando todas as páginas, a feature com persistência após F5, evolução, decisões, Bootstrap e acessibilidade. O vídeo precisa mostrar o site publicado funcionando. O enunciado informa que, sem vídeo, todo o trabalho individual é zerado.
+
+**Pendente do aluno:** estudar/revisar o código, ensaiar, gravar e disponibilizar o vídeo e fazer o envio. O roteiro não é o vídeo e não comprova domínio do aluno.
 
 ## Créditos
-Conteúdo e código preparados com assistência de IA para estudo e revisão do aluno. Leia e compreenda o código antes da apresentação e siga as regras de autoria da disciplina. Dados dos gráficos são ilustrativos. O currículo evita atribuir domínio avançado de tecnologias ao autor.
+
+Projeto preparado com assistência de IA na geração/revisão de código, documentação e testes. O aluno deve verificar, compreender e adaptar o material e explicar esse uso no vídeo, conforme o enunciado. Bootstrap © The Bootstrap Authors, licença MIT. Ilustração SVG e som gerado fazem parte dos recursos do projeto.

@@ -1,0 +1,24 @@
+name: Marcar entrega CP4
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  tag:
+    if: contains(github.event.head_commit.message, '[cp4-entrega]')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Criar tag anotada sem sobrescrever versão existente
+        run: |
+          if git ls-remote --exit-code --tags origin refs/tags/cp4-entrega; then
+            echo 'A tag já existe e será preservada.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git tag -a cp4-entrega -m 'Entrega CP4: versão final do portfólio individual'
+          git push origin refs/tags/cp4-entrega

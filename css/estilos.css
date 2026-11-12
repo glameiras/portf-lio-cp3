@@ -125,3 +125,12 @@ th,td{padding:12px;min-width:100px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}
 }
 
+
+/* CP4: integração do grid Bootstrap e ajustes de acessibilidade. */
+.portfolio-cards{margin-top:8px}
+.portfolio-cards .card{display:block;height:100%}
+.hero>* , .two-columns>*{min-width:0}
+pre{overflow-wrap:anywhere}
+input,select,textarea,.theme{border-color:var(--muted)}
+#conteudo:focus{outline:none}
+@media(max-width:380px){th,td{padding:8px;min-width:0;overflow-wrap:anywhere}pre{padding:16px;font-size:11px}}
