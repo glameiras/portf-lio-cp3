@@ -40,7 +40,7 @@ const paginas = ['index', 'curriculo', 'formulario', 'multimidia', 'graficos'];
 for (const pagina of paginas) {
   const html = fs.readFileSync(path.join(root, `${pagina}.html`), 'utf8');
   assert.ok(html.includes('src="js/scripts.js"'));
-  assert.ok(html.includes('href="css/estilos.css"'));
+  assert.ok(html.includes('href="css/estilos.css?v=cp4"'));
   for (const destino of paginas) assert.ok(html.includes(`href="${destino}.html"`));
   const recarga = iniciar(pagina === 'formulario');
   assert.equal(recarga.document.documentElement.dataset.tema, 'claro');
