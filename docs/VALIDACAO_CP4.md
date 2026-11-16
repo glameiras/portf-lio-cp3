@@ -22,4 +22,4 @@ Os valores correspondem aos pares de cores sobre o fundo principal, não a uma c
 
 ## Pendência da entrega acadêmica
 
-O aluno precisa compreender o código, gravar o vídeo com sua voz (1min30 a 2min30), testar o acesso ao vídeo e enviar os links no Blackboard. O roteiro em `ROTEIRO_CP4.md` orienta a demonstração; não substitui a gravação.
+O aluno precisa compreender o código, gravar o vídeo com sua voz (1min30 a 2min30), testar o acesso ao vídeo e enviar os links no Blackboard.
