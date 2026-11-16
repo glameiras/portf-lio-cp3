@@ -6,6 +6,7 @@ Versão final do projeto individual de Desenvolvimento Front-End para Web. Autor
 - Repositório: https://github.com/glameiras/portf-lio-cp3
 - Entrega final: tag `cp4-entrega`; a tag `cp3-entrega` permanece preservada.
 - Prazo: 17/11/2026.
+- Vídeo da apresentação: [Assistir no Google Drive](https://drive.google.com/file/d/1Dq2ZfDQJUahTCvcVYMlakQfSr9YHn2Pe/view?usp=drive_link).
 
 ## Páginas
 
@@ -86,7 +87,9 @@ O repositório existente `portf-lio-cp3` permanece com esse nome para preservar 
 
 No Blackboard, enviar link do site, link do repositório com a tag e **vídeo com sua voz de 1min30 a 2min30**, mostrando todas as páginas, a feature com persistência após F5, evolução, decisões, Bootstrap e acessibilidade. O vídeo precisa mostrar o site publicado funcionando. O enunciado informa que, sem vídeo, todo o trabalho individual é zerado.
 
-**Pendente do aluno:** estudar/revisar o código, ensaiar, gravar e disponibilizar o vídeo e fazer o envio.
+O vídeo da apresentação está disponível no link acima, com permissão de leitura para qualquer pessoa com o link. A inclusão desse link ocorreu na branch `main`, após a tag `cp4-entrega`.
+
+**Pendente do aluno:** conferir a reprodução e fazer o envio dos três links no Blackboard.
 
 ## Créditos
 
